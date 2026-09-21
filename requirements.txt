@@ -19,21 +19,28 @@ python-dotenv==1.0.0
 pydantic-settings==2.1.0
 email-validator==2.1.0
 
-
-# Cache & Queue (optional)
+# Cache & Queue
 redis==5.0.1
 celery==5.3.4
+
+# Email
+fastapi-mail==1.4.2
+aiosmtplib==3.0.2
+
+# WebSocket / realtime
+websockets==13.1
+python-socketio==5.11.4
+
+# Auth / security
+authlib==1.3.2
+itsdangerous==2.2.0
+
+# HTTP
+httpx==0.27.2
+
+# PDF
+reportlab==4.2.2
 
 # Testing
 pytest==7.4.3
 pytest-asyncio==0.21.1
-
-fastapi-mail==1.4.2
-aiosmtplib==3.0.2
-itsdangerous==2.2.0
-websockets==13.1
-python-socketio==5.11.4
-
-authlib==1.3.2
-httpx==0.27.2
-reportlab==4.2.2
