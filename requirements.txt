@@ -1,7 +1,7 @@
 # Core
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
-Collecting uvicorn==0.24.0
+
 # Database - MySQL
 sqlalchemy==2.0.23
 aiomysql==0.2.0
