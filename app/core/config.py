@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     # ============================================================
     MYSQL_USER: str = "pacistv_kics"
     MYSQL_PASSWORD: str = "pacistv_kics"
-    MYSQL_HOST: str = 198.251.83.106"          # ✅ no trailing colon
+    MYSQL_HOST: str ="198.251.83.106"          # ✅ no trailing colon
     MYSQL_PORT: int = 3306
     MYSQL_DB: str = "pacistv_kics"
 
