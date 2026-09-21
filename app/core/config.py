@@ -22,11 +22,11 @@ class Settings(BaseSettings):
     # ============================================================
     # Database — MySQL (XAMPP)
     # ============================================================
-    MYSQL_USER: str = "root"
-    MYSQL_PASSWORD: str = ""
-    MYSQL_HOST: str = "127.0.0.1"          # ✅ no trailing colon
+    MYSQL_USER: str = "pacistv_kics"
+    MYSQL_PASSWORD: str = "pacistv_kics"
+    MYSQL_HOST: str = 198.251.83.106"          # ✅ no trailing colon
     MYSQL_PORT: int = 3306
-    MYSQL_DB: str = "kics_ticketing"
+    MYSQL_DB: str = "pacistv_kics"
 
     # Connection Pool
     DB_POOL_SIZE: int = 10
@@ -63,7 +63,7 @@ class Settings(BaseSettings):
     # ============================================================
     # Frontend
     # ============================================================
-    FRONTEND_URL: str = "http://localhost:3000"
+    FRONTEND_URL: str = "https://kics-front-roan.vercel.app"
 
     # ============================================================
     # Token expiry
@@ -79,7 +79,7 @@ class Settings(BaseSettings):
     AZURE_CLIENT_ID: str = ""
     AZURE_CLIENT_SECRET: str = ""
     AZURE_TENANT_ID: str = ""
-    AZURE_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/sso/callback"
+    AZURE_REDIRECT_URI: str = "https://kicsbackend.vercel.app/api/v1/auth/sso/callback"
     AZURE_AUTHORITY: str = "https://login.microsoftonline.com"
 
     # ============================================================
