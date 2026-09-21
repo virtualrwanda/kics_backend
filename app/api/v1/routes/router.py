@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from .routes import auth, tickets, users, dashboard, admin
+from ....services import audit_service
 
 api_router = APIRouter(prefix="/api/v1")
 
@@ -32,3 +33,17 @@ try:
     print("✅ WebSocket route registered")
 except Exception as e:
     print(f"⚠️  WebSocket route NOT registered: {type(e).__name__}: {e}")
+    
+try:
+    from .routes import kb
+    api_router.include_router(kb.router)
+    print("✅ Knowledge Base routes registered")
+except Exception as e:
+    print(f"⚠️  KB routes NOT registered: {e}")
+    
+
+await audit_service.log_action(
+    db, current_user.id, "ticket_created",
+    entity_type="ticket", entity_id=new_ticket.id,
+    description=f"Created ticket {new_ticket.ticket_number}",
+)

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 
 
@@ -88,12 +88,16 @@ class SLAPolicyUpdate(BaseModel):
     first_response_minutes: int
     resolution_minutes: int
     is_active: bool = True
-    
+
+
+# ============================================================
+# CUSTOM FIELDS
+# ============================================================
 class CustomFieldCreate(BaseModel):
     name: str
     label: str
-    field_type: str = "text"
-    options: Optional[list] = None
+    field_type: str = "text"          # text, number, select, checkbox, date, textarea
+    options: Optional[List[str]] = None
     is_required: bool = False
     default_value: Optional[str] = None
     applies_to_category: Optional[str] = None
@@ -103,7 +107,7 @@ class CustomFieldCreate(BaseModel):
 class CustomFieldUpdate(BaseModel):
     label: Optional[str] = None
     field_type: Optional[str] = None
-    options: Optional[list] = None
+    options: Optional[List[str]] = None
     is_required: Optional[bool] = None
     default_value: Optional[str] = None
     applies_to_category: Optional[str] = None
@@ -116,13 +120,25 @@ class CustomFieldResponse(BaseModel):
     name: str
     label: str
     field_type: str
-    options: Optional[list] = None
+    options: Optional[List[str]] = None
     is_required: bool
     default_value: Optional[str] = None
-    applies_to_category: Optppional[str] = None
+    applies_to_category: Optional[str] = None
     display_order: int
     is_active: bool
     created_at: datetime
 
     class Config:
         from_attributes = True
+
+
+# ============================================================
+# BULK ACTIONS
+# ============================================================
+class BulkTicketAction(BaseModel):
+    action: str                        # "assign" | "close" | "resolve" | "priority" | "category"
+    ticket_ids: List[int]
+    assigned_to: Optional[int] = None
+    priority: Optional[str] = None
+    category: Optional[str] = None
+    comment: Optional[str] = None
